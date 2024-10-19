@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliciosos Bolos e Salgados</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px;
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            color: #ff6f61;
+            margin-top: 20px;
+        }
+        .whatsapp-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 220px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .whatsapp-button:hover {
+            background-color: #1ebea5;
+        }
+        footer {
+            background-color: #ff6f61;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .botao {
+            padding: 10px 15px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .botao:hover {
+            background-color: darkgray;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            background-color: white;
+        }
+        .remove-button {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-button:hover {
+            background-color: darkred;
+        }
+        #payment-button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: none;
+            margin-top: 20px;
+        }
+        #payment-button:hover {
+            background-color: #ff1493;
+        }
+        #qrcode {
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+        .header {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .top-right-image {
+            width: 50px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.6em; 
+            display: none;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .gallery div {
+            margin: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 200px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 4px solid #ff69b4;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .add-to-cart {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .add-to-cart:hover {
+            background-color: #ff1493;
+        }
+        .price {
+            color: green;
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Bolos e Salgados Nobre
+            <img src="https://cdn-icons-png.flaticon.com/512/6713/6713723.png" alt="Carrinho" id="cart-icon" class="top-right-image" onclick="redirectToCart()">
+            <span id="cart-count" class="cart-count">0</span>
+        </h1>
+    </div>
+
+    <div class="product-category" id="cakes">
+        <h2>BOLOS</h2>
+        <div class="gallery">
+            <div>
+                <p>Bolo de Kit Kat à minha moda</p>
+                <img src="https://static.wixstatic.com/media/9ec495_abf8683a19354fe39ac3a1644a68f217~mv2_d_2658_1772_s_2.jpg" alt="Bolo Kit Kat Brigadeiro Morango">
+                <div class="price">R$ 110,00 KG</div>
+                <div class="add-to-cart" onclick="addToCart('Bolo Kit Kat Brigadeiro Morango', 110)">Adicionar ao Carrinho</div>
+            </div>
+            <div>
+                <p>Bolo de Morango com Brigadeiro</p>
+                <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/beirario/media/uploads/produtos/foto/xrwupuqt/file.jpg" alt="Bolo de Morango com Brigadeiro">
+                <div class="price">R$ 90,00 KG</div>
+                <div class="add-to-cart" onclick="addToCart('Bolo de Morango com Brigadeiro', 90)">Adicionar ao Carrinho</div>
+            </div>
+            <div>
+                <p>Bolo de Nata com Morango e Brigadeiro</p>
+                <img src="https://www.receiteria.com.br/wp-content/uploads/bolo-de-morango-com-suspiros.jpeg" alt="Bolo de Nata com Morango e Brigadeiro">
+                <div class="price">R$ 95,00 KG</div>
+                <div class="add-to-cart" onclick="addToCart('Bolo de Nata com Morango e Brigadeiro', 95)">Adicionar ao Carrinho</div>
+            </div>
+            <div>
+                <p>Bolo Marta Rocha</p>
+                <img src="https://sweetmellow.com.br/wp-content/uploads/2020/12/bolos_bolo-marta-rocha_sweet-mellow.jpg" alt="Bolo Marta Rocha">
+                <div class="price">R$ 110,00 KG</div>
+                <div class="add-to-cart" onclick="addToCart('Bolo Marta Rocha', 110)">Adicionar ao Carrinho</div>
+            </div>
+            <div>
+                <p>Bolo decorativo infantil</p>
+                <img src="https://lh4.googleusercontent.com/proxy/JSmj8NXrbGWwyKyzkvq56ppnI_GK_bz85_a-hA7Qi1MSpI8NwOubSfyLb1wxWc0e4kFl-EqE-EhcaoYcRN3cECnewf4bIILZMtDB4MIi7ZrXav-TPDziyXe-m7oybkXLSL92w8k2ehMCPEysFLdtxdk3cD7vgDoJ5SiUZA" alt="Bolo decorativo infantil">
+                <div class="price">R$ 70,00 KG</div>
+                <div class="add-to-cart" onclick="addToCart('Bolo decorativo infantil', 70)">Adicionar ao Carrinho</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-category" id="savory">
+        <h2>Salgados e Tortas</h2>
+        <div class="gallery">
+            <div>
+                <p>Torta Fria</p>
+                <img src="https://www.receiteria.com.br/wp-content/uploads/receitas-de-torta-fria-de-frango-00.jpg" alt="Torta Fria">
+                <div class="price">R$ 60,00</div>
+                <div class="add-to-cart" onclick="addToCart('Torta Fria', 60)">Adicionar ao Carrinho</div>
+            </div>
+            <div>
+                <p>Centro de Salgados</p>
+                <img src="https://img77.uenicdn.com/image/upload/v1570205026/service_images/shutterstock_1131390731.jpg" alt="Centro de Salgados">
+                <div class="price">R$ 90,00</div>
+                <div class="add-to-cart" onclick="addToCart('Centro de Salgados', 90)">Adicionar ao Carrinho</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Delícias de Bolos e Salgados Da VaVa. Todos os direitos reservados.</p>
+          <p>Entre em contato Comigo: (51) 99159-0450</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function redirectToCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = 'carrinho.html';
+        }
+
+        function addToCart(name, price) {
+            const index = cart.findIndex(item => item.name === name);
+            if (index > -1) {
+                cart[index].quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            
+            updateCartCount();
+
+            const cartIcon = document.getElementById('cart-icon');
+            cartIcon.src = "https://cdn-icons-png.flaticon.com/512/6713/6713723.png"; // Ícone normal
+            cartIcon.style.transform = "scale(1.1)"; // Efeito de crescimento
+            setTimeout(() => {
+                cartIcon.style.transform = "scale(1)"; // Retornar ao tamanho normal
+            }, 1000);
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalQuantity;
+            cartCount.style.display = totalQuantity > 0 ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
